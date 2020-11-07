@@ -1,2 +1,21 @@
 @import '../../styles/abstracts/_variables';
-@import '../../styles/components/buttons.scss'
+@import '../../styles/components/buttons.scss';
+
+
+
+/* DEFAULT CSS */
+* {
+    font-size: $primaryFontSize;
+}
+
+.hide {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
