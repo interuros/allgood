@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Navigation = () => <h1>Hello world</h1>
+class Navigation extends Component {
+    render() {
+        return (
+            <nav className="navigation" id="navigation">
+                <div className="navigation__logo">
+                    <img src="" alt=""/>
+                </div>
+            </nav>
+        )
+    }
+} 
 
 
 export default Navigation;
