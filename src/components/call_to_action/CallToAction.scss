@@ -1,0 +1,92 @@
+@import '../../styles/abstracts/_variables';
+@import '../../styles/abstracts/_mixins';
+
+
+.cta {
+    padding-bottom: 150px;
+    padding-left: 20%;
+    overflow-x: hidden;
+
+    &__container {
+        background-color: $primaryGrey;
+        padding: 80px 0px 80px 250px;
+        position: relative;
+
+        &__content {
+            position: relative;
+            z-index: 1;
+
+            &__title {
+                color: $textBlue;
+                margin: 0;
+                font-size: 30px;
+                font-weight: 500;
+                max-width: 500px;
+            }
+
+            &__text {
+                margin: 30px 0;
+                max-width: 700px;
+                color: $textPrimary;
+            }
+
+            &__btn {
+                display: flex;
+            }
+        }
+
+        &__circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid $primaryGreen;
+            width: 240px;
+            height: 240px;
+            bottom: -100px;
+            left: -100px;
+            z-index: 0;
+            @include flex-box(flex, center, center);
+
+            &__inner {
+                border: inherit;
+                border-radius: inherit;
+                height: 76px;
+                width: 76px;
+            }
+        }
+    }
+
+    @media only screen and (max-width:900px) {
+        & {
+            padding-bottom: 50px;
+            padding-left: 0;
+
+            &__container {
+                padding: 50px 20px;
+
+
+                &__content {
+
+                    &__btn {
+                        & .button {
+                            padding: 10px 34px;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+
+                &__circle {
+                    width: 160px;
+                    height: 160px;
+                    left: unset;
+                    right: -50px;
+                    bottom: -40px;
+
+                    &__inner {
+                        height: 60px;
+                        width: 60px; 
+                    }
+                }
+            }
+        }
+    }
+}
