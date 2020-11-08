@@ -20,3 +20,30 @@ a {
 ul {
     list-style: none;
 }
+
+.section-title {
+    font-size: 35px;
+    color: $textBlue;
+    margin: 0;
+}
+
+
+section {
+    max-width: 1920px;
+}
+
+.section__header {
+    &--divider {
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #ccc;
+            border-radius: 5px;
+        }
+    }
+}

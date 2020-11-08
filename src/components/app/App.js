@@ -1,7 +1,12 @@
+import { Component } from 'react';
+
 import './App.scss';
+
+
 import Navigation from '../navigation/Navigation'
 import Hero from '../hero/Hero'
-import { Component } from 'react';
+import HowItWorks from '../how_it_works/HowItWorks'
+
 
 class App extends Component {
 
@@ -40,6 +45,7 @@ class App extends Component {
       <div className="App">
         <Navigation mobile={this.isMobile()}/>
         <Hero mobile={this.isMobile()}/>
+        <HowItWorks mobile={this.isMobile()}/>
       </div>
     );
   }
