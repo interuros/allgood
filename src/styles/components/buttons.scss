@@ -24,4 +24,12 @@
             }
         }
     }
+
+
+    @media only screen and (max-width: 980px) {
+        & {
+            padding: 5px 17px;
+            font-size: 14px;
+        }
+    }
 }

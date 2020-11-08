@@ -9,11 +9,12 @@
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 ul {

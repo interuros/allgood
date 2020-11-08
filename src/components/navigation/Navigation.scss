@@ -6,6 +6,8 @@
     background-color: $primaryBlue;
     padding: 10px 80px;
     @include flex-box(flex, space-between, center);
+    flex-wrap: wrap;
+    position: relative;
     
 
     &__logo {
@@ -17,6 +19,12 @@
             & img {
 
                 width: 180px;
+
+                @media only screen and (max-width: 900px) {
+                    & {
+                        width: 120px;
+                    }
+                }
             }
         }
         
@@ -201,6 +209,104 @@
                 }
 
             }
+        }
+
+        @media only screen and (max-width: 900px) {
+            & {
+                display: none;
+            }
+        }
+    }
+
+
+    &__form {
+        right: 0;
+        left: 0;
+        position: absolute;
+        top: 100%;
+        padding:0 80px;
+
+        & form {
+            margin: 0 auto;
+            background-color: $primaryWhite;
+            border-radius: 17px;
+            display: flex;
+            max-width: 100%;
+            width: fit-content;
+            background-color: #f3f3f4;
+
+
+            & input, & button {
+                border: none;
+                padding: 15px;
+                background-color: #f3f3f4;
+
+                @media only screen and (max-width: 900px) {
+                    & {
+                        padding: 7px;
+                    }
+                }
+            }
+
+            & input {
+
+                width: 30%;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &:first-of-type {
+                    border-top-left-radius: 15px;
+                    border-bottom-left-radius: 15px;
+                }
+
+                @media only screen and (max-width: 900px) {
+                    &:not(:first-of-type) {
+                        display: none;
+                    }
+
+                    &:first-of-type {
+                        width: 100%;
+                    }
+                }
+            }
+
+            & button {
+                border-top-right-radius: 15px;
+                border-radius: 15px;
+                background-color: $primaryRed;
+                color: $primaryWhite;
+                cursor: pointer;
+                font-size: 19px;
+            }
+
+
+            @media only screen and (max-width: 900px) {
+                & {
+                    width: 100%;
+                }
+            }
+
+        }
+
+
+        @media only screen and (max-width: 900px) {
+            & {
+                position: relative;
+                padding: 0;
+                flex-basis: 50%;
+            }
+        }
+
+
+    }
+
+
+    @media only screen and (max-width: 900px) {
+        & {
+            padding: 5px 10px;
+            background-color: $primaryWhite;
         }
     }
 
