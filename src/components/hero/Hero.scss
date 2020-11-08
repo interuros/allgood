@@ -1,0 +1,140 @@
+@import '../../styles/abstracts/_variables';
+@import '../../styles/abstracts/_mixins';
+
+
+
+.hero {
+    background-color: $primaryBlue;
+    padding-top: 52px;
+
+    &__container {
+        padding: 50px;
+        max-width: 1400px;
+        margin: 0 auto;
+        @include flex-box(flex, space-between, center);
+
+
+        &__features {
+            width: 50%;
+
+            &__item {
+                $self: &;
+                margin: 0 auto;
+                border: 2px solid $primaryBlue;
+                border-radius: 22px;
+                margin: 0 auto;
+                height: 70px;
+                max-width: 370px;
+                @include flex-box(flex, flex-start, center);
+                background-color: rgba(0, 0, 0, 0.199);
+
+                &--green {
+                    border-color: $primaryGreen;
+                    #{ $self }__icon {
+                        background-color: $primaryGreen;
+                    }
+                }
+
+                &--purple {
+                    border-color: $primaryPurple;
+
+                    #{ $self }__icon {
+                        background-color: $primaryPurple;
+                    }
+                }
+
+                &--red {
+                    border-color: $primaryRed;
+
+                    #{ $self }__icon {
+                        background-color: $primaryRed;
+                    }
+                }
+
+                &:not(:last-of-type) {
+                    margin-bottom: 20px;
+                }
+
+
+                &__icon {
+                    font-size: 25px;
+                    height: 100%;
+                    width: 70px;
+                    border-radius: 15px;
+                    @include flex-box(flex, center, center);
+                    margin-right: 30px;
+                }
+
+                &__text {
+                    color: $textWhite;
+                    padding-right: 15px;
+                    margin: 0px;
+                    flex: 1;
+                }
+            }
+        }
+
+
+        &__img {
+            width: 50%;
+
+            & img {
+                width: 80%;
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            & {
+                padding: 50px 10px;
+                flex-direction: column;
+
+                & > * {
+                    width: 100%;
+                }
+
+                &__img {
+                    & img {
+                        width: 100%;
+                    }
+                }
+
+                &__features {
+                    order: 2;
+
+                    &__item {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &__curve {
+        width: 100%;
+        background-color: $primaryBlue;
+        height: 40px;
+
+
+        & svg {
+            height: 100%;
+            width: 100%;
+            fill: $primaryWhite;
+        }
+
+
+        @media only screen and (max-width: 900px) {
+            & {
+                display: none;
+            }
+        }
+
+        
+    }
+
+
+    @media only screen and (max-width: 900px) {
+        & {
+            padding-top: 0px;
+        }
+    }
+}

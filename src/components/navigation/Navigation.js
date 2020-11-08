@@ -10,37 +10,28 @@ import accImg from '../../assets/account_default.jpg'
 class Navigation extends Component {
 
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {};
-        this.isMobile();
-    }
-
-
-    isMobile = () => {
-        let width = window.innerWidth;
-        this.setState({
-            mobile: width < 900 ? true : false,
-        })
+        this.changeLogo = this.changeLogo.bind(this)
     }
 
 
     changeLogo = () => {
         this.setState({
-            logo: this.state.mobile === true ? mobileLogo : desktopLogo
+            logo: this.props.mobile === true ? mobileLogo : desktopLogo
         })
     }
+    
 
     componentDidMount() {
-        window.addEventListener("resize", () => {
-            this.isMobile();
-            this.changeLogo();
-        });
+        this.changeLogo();
+        window.addEventListener("resize", this.changeLogo);
     }
 
 
     componentWillUnmount() {
-        window.removeEventListener("resize");
+        window.removeEventListener("resize", this.changeLogo);
     }
 
 

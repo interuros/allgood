@@ -2,18 +2,19 @@
 // ================ COLORS ================
 //=========================================
 
-// ======== text colors ========
-$textBlue: #22315b;
-$textRed: #dd5757;
-$textWhite: #fff;
-$textPrimary: #838384;
-
 // ======== general colors ========
 $primaryGreen: #22a47b;
 $primaryPurple: #6767f4;
 $primaryRed: #dd5757;
 $primaryBlue: #22315b;
 $primaryWhite: #fff;
+
+
+// ======== text colors ========
+$textBlue: $primaryBlue;
+$textRed: $primaryRed;
+$textWhite: $primaryWhite;
+$textPrimary: #838384;
 
 
 //=========================================

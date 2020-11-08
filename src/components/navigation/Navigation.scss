@@ -55,7 +55,7 @@
 
                 & a {
 
-                    color: $primaryWhite;
+                    color: $textWhite;
                 }
             }
         }
@@ -76,12 +76,12 @@
             /* logged in menu styles */
             &__in {
 
-                @include flex-box(flex, flex-start, center)
+                @include flex-box(flex, flex-start, center);
 
 
                 &__icon {
 
-                    color: $primaryWhite;
+                    color: $textWhite;
                     font-size: 19px;
                     display: inline-block;
 
@@ -114,7 +114,7 @@
                 &__profile {
 
                     @include flex-box(flex, flex-start, center);
-                    color: $primaryWhite;
+                    color: $textWhite;
                     position: relative;
 
 
@@ -196,7 +196,7 @@
                             & a {
                                 padding: 10px;
                                 width: 100%;
-                                color: $primaryWhite;        
+                                color: $textWhite;        
                             }
                         }
 
@@ -276,7 +276,7 @@
                 border-top-right-radius: 15px;
                 border-radius: 15px;
                 background-color: $primaryRed;
-                color: $primaryWhite;
+                color: $textWhite;
                 cursor: pointer;
                 font-size: 19px;
             }
