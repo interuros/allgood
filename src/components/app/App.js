@@ -6,6 +6,7 @@ import './App.scss';
 import Navigation from '../navigation/Navigation'
 import Hero from '../hero/Hero'
 import HowItWorks from '../how_it_works/HowItWorks'
+import Post from '../post/Post'
 
 
 class App extends Component {
@@ -45,7 +46,8 @@ class App extends Component {
       <div className="App">
         <Navigation mobile={this.isMobile()}/>
         <Hero mobile={this.isMobile()}/>
-        <HowItWorks mobile={this.isMobile()}/>
+        <HowItWorks/>
+        <Post/>
       </div>
     );
   }

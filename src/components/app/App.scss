@@ -22,7 +22,7 @@ ul {
 }
 
 .section-title {
-    font-size: 35px;
+    font-size: 40px;
     color: $textBlue;
     margin: 0;
 }
@@ -30,20 +30,33 @@ ul {
 
 section {
     max-width: 1920px;
+
+    &--blue {
+        background-color: $primaryBlue;
+    }
 }
 
-.section__header {
-    &--divider {
-        &::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: #ccc;
-            border-radius: 5px;
+
+.section {
+
+    &__header {
+        &--divider {
+            &::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 4px;
+                background-color: #ccc;
+                border-radius: 5px;
+            }
         }
     }
+
+    &--blue {
+        background-color: $primaryBlue;
+    }
+
 }

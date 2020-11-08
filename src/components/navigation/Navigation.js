@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { faEnvelope, faBell, faChevronDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Buttons from '../buttons/Buttons'
 
 import './Navigation.scss'
 import desktopLogo from '../../assets/logo.png'
 import mobileLogo from '../../assets/logo-mobile.png'
 import accImg from '../../assets/account_default.jpg'
+
 
 class Navigation extends Component {
 
@@ -66,14 +68,7 @@ class Navigation extends Component {
                         </li>
                     </ul>
                     <div className="navigation__links__account">
-                        <div className="navigation__links__account__out">
-                            <a href={void(0)} className="button button--red">
-                                <span>Sign in</span>
-                            </a>
-                            <a href={void(0)} className="button button--white">
-                                <span>Sign up</span>
-                            </a>
-                        </div>
+                        <Buttons/>
                         <div className="navigation__links__account__in hide">
                             <a href={void(0)} className="navigation__links__account__in__icon">
                                 <FontAwesomeIcon icon={faEnvelope} />
