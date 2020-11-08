@@ -1,0 +1,54 @@
+@import '../../styles/abstracts/_variables';
+@import '../../styles/abstracts/_mixins';
+
+
+.featured {
+
+    padding: 50px 0px 150px 0px;
+
+
+    &__header {
+        margin-bottom: 50px;
+    }
+
+
+    & .slick-slide {
+        &:not(:last-of-type) {
+            & .featureditem {
+                margin: 0 15px 0 15px;
+            }
+        }
+    }
+
+    & .custom__arrow {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        @include flex-box(flex, center, center);
+        border-radius: 50%;
+        background-color: $primaryWhite;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.452);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.452);
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.452);
+        z-index: 1;
+        cursor: pointer;
+        transform: translateY(-50%);
+
+        &--next {
+            right: 30px;
+        }
+
+        &--prev {
+            left: 30px;
+        }
+    }
+
+
+    @media only screen and (max-width: 900px) {
+        & {
+            padding: 50px 0px 50px 0px;
+        }
+    }
+
+}

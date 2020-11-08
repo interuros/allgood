@@ -6,6 +6,7 @@
 /* DEFAULT CSS */
 * {
     font-size: $primaryFontSize;
+    outline: none;
 }
 
 .hide {
@@ -25,6 +26,7 @@ ul {
     font-size: 40px;
     color: $textBlue;
     margin: 0;
+    text-align: center;
 }
 
 

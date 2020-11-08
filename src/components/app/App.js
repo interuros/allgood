@@ -7,6 +7,7 @@ import Navigation from '../navigation/Navigation'
 import Hero from '../hero/Hero'
 import HowItWorks from '../how_it_works/HowItWorks'
 import Post from '../post/Post'
+import Featured from '../featured/Featured'
 
 
 class App extends Component {
@@ -48,6 +49,7 @@ class App extends Component {
         <Hero mobile={this.isMobile()}/>
         <HowItWorks/>
         <Post/>
+        <Featured/>
       </div>
     );
   }

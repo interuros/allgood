@@ -1,0 +1,67 @@
+@import '../../../styles/abstracts/_variables';
+@import '../../../styles/abstracts/_mixins';
+
+
+.featureditem {
+    color: $textBlue;
+
+
+    &:not(:last-of-type) {
+        margin: 0 30px 0 0;
+    }
+    
+    &__img {
+        height: 150px;
+
+        & img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+    }
+
+    &__content {
+        padding: 15px;
+        background-color: $primaryGrey;
+
+        &__name {
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        &__vendor {
+            font-weight: 600;
+        }
+
+        &__shortdesc {
+            color: $textPrimary;
+            font-size: 14px;
+        }
+
+        &__price {
+            font-size: 22px;
+            margin-bottom: 0;
+        }
+    }
+
+
+    &__link {
+        @include flex-box(flex, center, center);
+        height: 40px;
+        font-weight: 600;
+        background-color: darken($primaryGrey, 18%);
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        transition: .3s;
+
+        & svg {
+            margin-right: 7px;
+        }
+
+        &:hover {
+            background-color: darken($primaryGrey, 28%);
+        }
+    }
+}

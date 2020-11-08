@@ -41,7 +41,7 @@ class HowItWorks extends Component {
                     <div className="howitworks__steps__container">
                         {items.map((value, index) => {
                             return (
-                                <div className={"howitworks__steps__container__step howitworks__steps__container__step--" + value.class}>
+                                <div key={index} className={"howitworks__steps__container__step howitworks__steps__container__step--" + value.class}>
                                     <div className="howitworks__steps__container__step__icon">
                                         <div className="howitworks__steps__container__step__icon__line">
                                             <img src={value.line} alt={index}/>
