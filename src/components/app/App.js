@@ -49,8 +49,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navigation mobile={this.state.mobile}/>
-        <Hero mobile={this.state.mobile}/>
+        <Navigation mobile={this.isMobile()}/>
+        <Hero mobile={this.isMobile()}/>
         <HowItWorks/>
         <Post/>
         <Featured/>
