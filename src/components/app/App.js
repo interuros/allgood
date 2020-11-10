@@ -9,6 +9,7 @@ import HowItWorks from '../how_it_works/HowItWorks'
 import Post from '../post/Post'
 import Featured from '../featured/Featured'
 import CallToAction from '../call_to_action/CallToAction'
+import Footer from '../footer/Footer'
 
 
 class App extends Component {
@@ -16,8 +17,7 @@ class App extends Component {
   
   constructor(props) {
       super(props);
-      this.state = {};
-      this.setMobile = this.setMobile.bind(this);
+      this.state = {mobile:false};
   }
 
 
@@ -32,8 +32,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-      this.setMobile();
       window.addEventListener("resize", this.setMobile);
+  }
+  
+  componentWillMount() {
+    this.setMobile();
   }
 
 
@@ -46,12 +49,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navigation mobile={this.isMobile()}/>
-        <Hero mobile={this.isMobile()}/>
+        <Navigation mobile={this.state.mobile}/>
+        <Hero mobile={this.state.mobile}/>
         <HowItWorks/>
         <Post/>
         <Featured/>
-        <CallToAction session/>
+        <CallToAction/>
+        <Footer/>
       </div>
     );
   }

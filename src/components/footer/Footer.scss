@@ -1,0 +1,158 @@
+@import '../../styles/abstracts/_variables';
+@import '../../styles/abstracts/_mixins';
+
+
+
+.customfooter {
+    background-color: $primaryGrey;
+    padding: 50px 0;
+
+    &__container {
+        @include flex-box(flex, center, );
+        flex-wrap: wrap;
+        max-width: 80%;
+        margin: 0 auto;
+
+        &__social {
+            flex: 2;
+
+            &__logo {
+                max-width: 150px;
+
+                & img {
+                    width: 100%;
+                }
+            }
+
+            &__text {
+                color: $textPrimary;
+                max-width: 500px;
+                margin: 30px 0;
+                padding-right: 15px;
+            }
+
+
+            &__links {
+                @include flex-box(flex);
+                flex-wrap: wrap;
+
+                & a {
+
+                    font-size: 25px;
+                    color: $textBlue;
+
+
+                    &:not(:last-of-type) {
+                        margin-right: 20px;
+                    }
+                }
+            }
+
+
+        }
+
+
+        &__info {
+            flex: 1;
+
+            &__title {
+                font-size: 18px;
+                color: $textBlue;
+            }
+
+            &__links {
+                padding-left: 0;
+
+                &__item {
+
+                    & a {
+                        color: $textPrimary;
+                    }
+
+                    &:not(:last-of-type) {
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+
+        &__copyright {
+            flex-basis: 100%;
+            margin-top: 50px;
+            color: $textPrimary;
+            @include flex-box();
+            
+
+
+            &__text {
+                margin-right: 30px;
+            }
+
+            &__links {
+                &__item {
+                    display: inline-block;
+
+                    &:not(:last-of-type) {
+                        margin-right: 30px;
+                    }
+                }
+            }
+        }
+
+        @media only screen and (max-width: 1000px) {
+            & {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            
+            & {
+
+                &__social {
+                    margin-bottom: 30px;
+
+                    &__text {
+                        padding: 0;
+                    }
+
+                    &__links {
+                        & a {
+                            font-size: 35px;
+                        }
+                    }
+                }
+
+
+                &__copyright {
+                    flex-wrap: wrap;
+                    margin-top: 30px;
+                    & > * {
+                        
+                        flex-basis: 100%;
+                    }
+
+                    &__links {
+                        margin: 0;
+
+
+                        &__item {
+                            margin-right: 0;
+                            display: block;
+
+                            &:not(:last-of-type) {
+                                margin-bottom: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            & > * {
+                flex-basis: 100%;
+            }
+        }
+    }
+
+}
