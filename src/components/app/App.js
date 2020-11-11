@@ -10,6 +10,7 @@ import Post from '../post/Post'
 import Featured from '../featured/Featured'
 import CallToAction from '../call_to_action/CallToAction'
 import Footer from '../footer/Footer'
+import Form from '../form/Form'
 
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
   
   constructor(props) {
       super(props);
-      this.state = {mobile:false};
+      this.state = {mobile:false, formType: "register"};
   }
 
 
@@ -44,18 +45,32 @@ class App extends Component {
       window.removeEventListener("resize", this.setMobile);
   }
 
+  toggleForm = (type) => {
+    this.setState({
+      formType: type,
+      formShow: !this.state.formShow
+    })
+  }
+
+
+  
 
 
   render() {
     return (
       <div className="App">
-        <Navigation mobile={this.isMobile()}/>
+        <Navigation toggleForm={this.toggleForm} mobile={this.isMobile()}/>
         <Hero mobile={this.isMobile()}/>
         <HowItWorks/>
-        <Post/>
+        <Post toggleForm={this.toggleForm}/>
         <Featured/>
         <CallToAction/>
         <Footer/>
+        {/* {this.state.formShow ? 
+        <Form type={this.state.formType}/>
+        : null} */}
+        {this.state.formShow ? <Form toggleForm={this.toggleForm} type={this.state.formType} popup={true}/> : null}
+        
       </div>
     );
   }

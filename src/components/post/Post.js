@@ -27,7 +27,7 @@ class Post extends Component {
                         To post an item for sale - please register
                         or sign in ig you are already registered with allgodd
                     </p>
-                    <Buttons/>
+                    <Buttons toggleForm={this.props.toggleForm}/>
                 </div>
             </section>
         )

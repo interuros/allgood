@@ -68,7 +68,7 @@ class Navigation extends Component {
                         </li>
                     </ul>
                     <div className="navigation__links__account">
-                        <Buttons/>
+                        <Buttons toggleForm={this.props.toggleForm} />
                         <div className="navigation__links__account__in hide">
                             <a href={void(0)} className="navigation__links__account__in__icon">
                                 <FontAwesomeIcon icon={faEnvelope} />

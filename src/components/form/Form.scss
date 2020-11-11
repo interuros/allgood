@@ -1,0 +1,90 @@
+@import '../../styles/abstracts/_variables';
+@import '../../styles/abstracts/_mixins';
+
+.form {
+
+    @include flex-box(flex, center, center);
+    text-align: center;
+    flex-wrap: wrap;
+
+    &--popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.497);
+        z-index: 9999;
+        padding: 5px;
+    }
+
+    & form {
+        position: relative;
+        padding: 20px;
+        max-width: 450px;
+        max-height: 90%;
+        background-color: $primaryWhite;
+        border-radius: 20px;
+        overflow-y: auto;
+        width: 450px;
+        flex: 1;
+    }
+
+
+    &__input {
+
+        margin-bottom: 15px;
+        @include flex-box();
+        flex-wrap: wrap;
+
+        & label {
+            display: block;
+            margin-bottom: 5px;
+            color: $textPrimary;
+            text-align: left;
+        }
+
+        & input {
+            width: 100%;
+            color: $textBlue;
+            padding: 15px 10px;
+            border-radius: 10px;
+            border: 2px solid $textPrimary;
+            font-weight: 700;
+            
+            &:focus {
+                border-color: $primaryBlue;
+            }
+
+        }
+
+    }
+
+
+    & button {
+        margin: 0 auto;
+
+        @media only screen and (max-width: 900px) {
+            & {
+                padding: 10px 34px;
+            }
+        }
+    }
+
+
+    &__close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        color: $textPrimary;
+        transition: .2s;
+
+        &:hover {
+            color: $textRed;
+        }
+    }
+    
+}

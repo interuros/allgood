@@ -11,7 +11,6 @@ import "slick-carousel/slick/slick.css";
 import img from "../../assets/featured_img_default.jpg";
 
 function NextArrow(props) {
-    console.log("test");
     const { customClass, onClick } = props;
     return (
       <div
