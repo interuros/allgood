@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Message from '../message/Message'
 
 import './Form.scss';
 
@@ -12,10 +13,31 @@ class Footer extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {data: {}, messages: {}};
     }
 
 
+    submitForm = (event) => {
+        event.preventDefault();
+
+        console.log(this.state.data);
+    }
+
+
+    onChange = (event) => {
+        let newData = {...this.state.data};
+        newData[event.target.name] = event.target.value;
+
+        this.setState({data: {...newData}})
+    }
    
+
+    removeMessage = (key) => {
+        let messages = {...this.state.messages};
+        messages[key] = false;
+        this.setState({messages: {...messages}})
+    }
 
 
     render() {
@@ -41,14 +63,19 @@ class Footer extends Component {
             }
         }
 
+
+        const messages = [
+            {text: "Lorem ipsum some awesome message!"}
+        ]
+
         return (
             <div className={"form " + (popup ? "form--popup" : "")}>
-                <form onSubmit="">
+                <form onSubmit={this.submitForm}>
                     {forms[type].fields.map(field => {
                         return(
                             <div className="form__input">
                                 <label htmlFor={field.name}>{field.label}</label>
-                                <input type={field.type} name={field.name} id={field.name} placeholder={field.placeholder ? field.placeholder : ""}/>    
+                                <input onChange={this.onChange} type={field.type} name={field.name} id={field.name} placeholder={field.placeholder ? field.placeholder : ""}/>    
                             </div>
                         )
                     })}
@@ -58,6 +85,9 @@ class Footer extends Component {
                     <FontAwesomeIcon icon={faTimes}/>
                 </div>
                 </form>
+                {messages.map((value, index) => {
+                    return (this.state.messages[index] == false ? "" : <Message data={value} index={index} remove={this.removeMessage}/>)
+                })}
             </div>
         )
     }

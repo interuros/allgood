@@ -1,0 +1,25 @@
+@import '../../styles/abstracts/_variables';
+@import '../../styles/abstracts/_mixins';
+
+
+.flash-message {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    background-color: lighten($primaryRed, 10%);
+    z-index: 10;
+    padding: 20px;
+
+    & p {
+        margin: 0;
+    }
+
+    &__close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+}
