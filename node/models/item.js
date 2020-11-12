@@ -14,6 +14,13 @@ const itemSchema = new Schema({
     type: String,
     required: true
   },
+  price: {
+      type: Number,
+      required: true,
+  },
+  image: {
+      type: String
+  }
 }, { timestamps: true });
 
 const Item = mongoose.model('Item', itemSchema);

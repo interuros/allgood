@@ -35,18 +35,22 @@ function NextArrow(props) {
 
 class Featured extends Component {
 
+    constructor(props) {
+      super(props);
+      this.state = {items: []};
+    }
+
+    componentDidMount = () => {
+        fetch("http://localhost:3000/item/list")
+          .then(res => res.json())
+          .then(res => {
+            this.setState({items: res})
+          })
+    }
 
     render() {
 
-        const items = [
-            {image: img, name: "Almost new sofa", vendor: "John S.", shortDesc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has", price: 300},
-            {image: img, name: "Almost new sofa", vendor: "John S.", shortDesc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has", price: 300},
-            {image: img, name: "Almost new sofa", vendor: "John S.", shortDesc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has", price: 300},
-            {image: img, name: "Almost new sofa", vendor: "John S.", shortDesc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has", price: 300},
-            {image: img, name: "Almost new sofa", vendor: "John S.", shortDesc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has", price: 300},
-            {image: img, name: "Almost new sofa", vendor: "John S.", shortDesc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has", price: 300},
-            {image: img, name: "Almost new sofa", vendor: "John S.", shortDesc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has", price: 300},
-        ];
+        const {items} = this.state;
 
         const settings = {
             dots: false,
@@ -79,7 +83,7 @@ class Featured extends Component {
           };
 
 
-        return (
+        return ( items ?
             <section className="featured">
                 <div className="featured__header">
                     <h2 className="featured__header__title section-title">
@@ -92,7 +96,7 @@ class Featured extends Component {
                     })}
                 </Slider>
 
-            </section>
+            </section> : null
         )
     }
 } 
