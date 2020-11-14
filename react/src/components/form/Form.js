@@ -20,8 +20,29 @@ class Footer extends Component {
 
     submitForm = (event) => {
         event.preventDefault();
+        this.setState({messages: {}, errors: []});
 
-        console.log(this.state.data);
+        fetch("http://localhost:3000/user/" + this.props.type, {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(this.state.data)
+        })
+        .then(response => response.text())
+        .then(responseText => {
+            let data = JSON.parse(responseText);
+
+            if (data.success) {
+                this.props.toggleForm("");
+            } else {
+                this.setState({errors: data.errors});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+
+        
     }
 
 
@@ -36,7 +57,7 @@ class Footer extends Component {
     removeMessage = (key) => {
         let messages = {...this.state.messages};
         messages[key] = false;
-        this.setState({messages: {...messages}})
+        this.setState({messages: {...messages}});
     }
 
 
@@ -47,26 +68,24 @@ class Footer extends Component {
         const forms = {
             login: {
                 fields: [
-                    {name: "username", type: "email", placeholder: "Enter your e-mail", label: "Username"},
-                    {name: "password", type: "password",  placeholder: "Enter your password", label: "Password"},
+                    {name: "username", type: "email", placeholder: "Enter your e-mail", label: "Username", required: true},
+                    {name: "password", type: "password",  placeholder: "Enter your password", label: "Password", required: true},
                 ]
             },
             register: {
                 fields: [
-                    {name: "name", type: "text", placeholder: "Your first name", label: "First name"},
-                    {name: "lastName", type: "text", placeholder: "Your last name", label: "Last name"},
-                    {name: "job", type: "text", placeholder: "Your Job/Occupation", label: "Your Job/Occupation"},
-                    {name: "email", type: "email", placeholder: "Your e-mail address", label: "E-mail"},
-                    {name: "password", type: "password", placeholder: "Your password", label: "Password"},
-                    {name: "passwordRepeat", type: "password", placeholder: "Repeat your password", label: "Repeat password"},
+                    {name: "firstName", type: "text", placeholder: "Your first name", label: "First name", required: true},
+                    {name: "lastName", type: "text", placeholder: "Your last name", label: "Last name", required: true},
+                    {name: "job", type: "text", placeholder: "Your Job/Occupation", label: "Your Job/Occupation", required: false},
+                    {name: "email", type: "email", placeholder: "Your e-mail address", label: "E-mail", required: true},
+                    {name: "password", type: "password", placeholder: "Your password", label: "Password", required: true},
+                    {name: "passwordRepeat", type: "password", placeholder: "Repeat your password", label: "Repeat password", required: true},
                 ]
             }
         }
 
 
-        const messages = [
-            {text: "Lorem ipsum some awesome message!"}
-        ]
+        const messages = this.state.errors;
 
         return (
             <div className={"form " + (popup ? "form--popup" : "")}>
@@ -74,8 +93,8 @@ class Footer extends Component {
                     {forms[type].fields.map(field => {
                         return(
                             <div className="form__input">
-                                <label htmlFor={field.name}>{field.label}</label>
-                                <input onChange={this.onChange} type={field.type} name={field.name} id={field.name} placeholder={field.placeholder ? field.placeholder : ""}/>    
+                                <label htmlFor={field.name}>{field.label } {field.required === true ? <span>*</span> : ""}</label>
+                                <input required={field.required} onChange={this.onChange} type={field.type} name={field.name} id={field.name} placeholder={field.placeholder ? field.placeholder : ""}/>    
                             </div>
                         )
                     })}
@@ -85,9 +104,9 @@ class Footer extends Component {
                     <FontAwesomeIcon icon={faTimes}/>
                 </div>
                 </form>
-                {messages.map((value, index) => {
-                    return (this.state.messages[index] == false ? "" : <Message data={value} index={index} remove={this.removeMessage}/>)
-                })}
+                {messages ? messages.map((value, index) => {
+                    return (this.state.messages[index] == false ? "" : (index == "0" || this.state.messages[index - 1] == false ? <Message data={value} index={index} remove={this.removeMessage}/> : ""))
+                }) : ""}
             </div>
         )
     }

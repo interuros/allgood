@@ -5,15 +5,16 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const config = require("./config/config")
 
 const itemRoutes = require('./routes/itemRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
-const dbURI = "mongodb+srv://jsguru:jsguru123@allgood.zzgrk.mongodb.net/allgood?retryWrites=true&w=majority";
+const dbURI = config.mongoDbURI;
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
-  .then((result) => app.listen(5000))
+  .then((result) => app.listen(config.port, "localhost"))
   .catch((err) => console.log(err));
 
 app.use(logger('dev'));
