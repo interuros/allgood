@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import accImg from '../../../assets/account_default.jpg'
-import { faEnvelope, faBell, faChevronDown, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faBell, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
@@ -9,13 +9,17 @@ class Account extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {dropdown: false};
     }
 
     logOut = () => {
         this.props.setLoggedIn(false);
         this.props.setUser(false);
         localStorage.removeItem('token');
+    }
+
+    toggleDropdown = () => {
+        this.setState({dropdown: !this.state.dropdown});
     }
 
     render() {
@@ -33,22 +37,28 @@ class Account extends Component {
                 </a>
                 
                 <div className="navigation__links__account__in__profile">
-                    <img className="navigation__links__account__in__profile__thumb" src={accImg} alt=""/>
+                    <img onClick={() => this.toggleDropdown()} className="navigation__links__account__in__profile__thumb" src={accImg} alt=""/>
                     
-                    <a className="navigation__links__account__in__profile__arrow">
+                    <a onClick={() => this.toggleDropdown()} className="navigation__links__account__in__profile__arrow">
                         <FontAwesomeIcon icon={faChevronDown} />
                     </a>
-                    <ul className="navigation__links__account__in__profile__dropdown">
-                        <li className="navigation__links__account__in__profile__dropdown__item">
+                    {
+                        this.state.dropdown === true ? 
+
+                        <div className="navigation__links__account__in__profile__dropdown">
                             <p>Signed in as {user.email}</p>
-                        </li>
-                        <li className="navigation__links__account__in__profile__dropdown__item">
-                            <p>{`${user.firstName} ${user.lastName}${user.job ? ": " + user.job : ""}`}</p>
-                        </li>
-                        <li onClick={() => this.logOut()} className="navigation__links__account__in__profile__dropdown__item">
-                            <a href="#">Log out</a>
-                        </li>
-                    </ul>
+                            <ul className="navigation__links__account__in__profile__dropdown__list">
+                                <li className="navigation__links__account__in__profile__dropdown__list__item">
+                                    <p>{`${user.firstName} ${user.lastName}${user.job ? ": " + user.job : ""}`}</p>
+                                </li>
+                                <li onClick={() => this.logOut()} className="navigation__links__account__in__profile__dropdown__list__item">
+                                    <a href="#">Log out</a>
+                                </li>
+                            </ul>
+                        </div> : ""
+                    }
+                    
+                    
                 </div>
             </div>
         )

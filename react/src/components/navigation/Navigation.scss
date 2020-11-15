@@ -115,6 +115,7 @@
                         object-fit: cover;
                         border-radius: 50%;
                         margin-right: 2px;
+                        cursor: pointer;
                     }
 
 
@@ -138,7 +139,7 @@
                         width: max-content;
                         right: 0;
                         padding: 0px;
-                        display: none;
+                        display: block;
 
 
                         &::after {
@@ -151,49 +152,54 @@
                             border-bottom-color: $primaryRed;
                         }
 
-                        
-                        &__item {
+                        & > p {
+                            margin: 0;
+                            padding: 10px 10px 5px 10px;
+                            margin-bottom: 10px;
+                            border-bottom: 1px solid $primaryWhite;
+                            border-top-left-radius: 10px;
+                            border-top-right-radius: 10px;
+                        }
 
-                            transition: .3s;
-                            background-color: $primaryRed;
-                            display: flex;
+                        &__list {
+                            margin: 0;
 
+                            &__item {
 
-                            &:last-of-type {
-                                border-bottom-left-radius: 10px;
-                                border-bottom-right-radius: 10px;
-                            }
-
-                            &:first-of-type {
-                                border-top-left-radius: 10px;
-                                border-top-right-radius: 10px;
-                            }
-
-                            &:not(:first-of-type) {
-                             &:hover {
-                                 background-color: lighten($primaryRed, 10%);
-                             }   
-                            }
-                        
-
-                            & p {
-                                margin: 0;
-                                padding: 10px 10px 5px 10px;
-                                margin-bottom: 10px;
-                                border-bottom: 1px solid $primaryWhite;
-                            }
-
-                            & a {
-                                padding: 10px;
-                                width: 100%;
-                                color: $textWhite;        
+                                transition: .3s;
+                                background-color: $primaryRed;
+                                display: flex;
+    
+    
+                                &:last-of-type {
+                                    border-bottom-left-radius: 10px;
+                                    border-bottom-right-radius: 10px;
+                                }
+    
+    
+                                &:not(:first-of-type) {
+                                 &:hover {
+                                     background-color: lighten($primaryRed, 10%);
+                                 }   
+                                }
+                            
+    
+                                & p {
+                                    margin: 0;
+                                    padding: 10px 10px 5px 10px;
+                                }
+    
+                                & a {
+                                    padding: 10px;
+                                    width: 100%;
+                                    color: $textWhite;        
+                                }
                             }
                         }
 
-                    }
+                        
+                        
 
-                    &:hover > ul {
-                        display: block;
                     }
 
                 }
@@ -249,6 +255,10 @@
                 &:first-of-type {
                     border-top-left-radius: 15px;
                     border-bottom-left-radius: 15px;
+                }
+
+                &:not(:last-of-type) {
+                    border-right: 1px solid #000;
                 }
 
                 @media only screen and (max-width: 900px) {

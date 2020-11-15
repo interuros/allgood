@@ -47,14 +47,21 @@ class Navigation extends Component {
                 </div>
 
                 <div className="navigation__form">
-                    <form action="">
-                        <input name="location" type="text" placeholder="Location"/>
-                        <input name="category" type="text" placeholder="Category"/>
-                        <input name="charity" type="text"  placeholder="Charity"/>
-                        <button>
-                        <FontAwesomeIcon icon={faSearch} />
-                        </button>
-                    </form>
+                    { this.props.mobile === true ? 
+                        <form action="">
+                            <input name="location" type="text" placeholder="Search or post..."/>
+                            <button>
+                            <FontAwesomeIcon icon={faSearch} />
+                            </button>
+                        </form>
+                     :  <form action="">
+                            <input name="location" type="text" placeholder="Location"/>
+                            <input name="category" type="text" placeholder="Category"/>
+                            <input name="charity" type="text"  placeholder="Charity"/>
+                            <button>
+                            <FontAwesomeIcon icon={faSearch} />
+                            </button>
+                        </form>}
                 </div>
                 
                 <div className="navigation__links">

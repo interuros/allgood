@@ -15,13 +15,13 @@ class Footer extends Component {
 
         const links = [
             {title: "Allgood", links: [
-                {link: "#", text: "About us"},
-                {link: "#", text: "Contact"},
-                {link: "#", text: "Help"}
+                {link: void(0), text: "About us"},
+                {link: void(0), text: "Contact"},
+                {link: void(0), text: "Help"}
             ]},
             {title: "Charities", links: [
-                {link: "#", text: "Charity/Campaign partners"},
-                {link: "#", text: "Sign up charity/campaign"}
+                {link: void(0), text: "Charity/Campaign partners"},
+                {link: void(0), text: "Sign up charity/campaign"}
             ]}
         ]
 
@@ -50,14 +50,14 @@ class Footer extends Component {
                     </div>
                     {links.map((list, index) => {
                         return(
-                            <div className="customfooter__container__info">    
+                            <div key={index} className="customfooter__container__info">    
                                 <h3 className="customfooter__container__info__title">
                                     {list.title}
                                 </h3>
                                 <ul className="customfooter__container__info__links">
-                                    {list.links.map((link) => {
+                                    {list.links.map((link, num) => {
                                         return(
-                                            <li className="customfooter__container__info__links__item">
+                                            <li key={num} className="customfooter__container__info__links__item">
                                                 <a href={link.link}>{link.text}</a>
                                             </li>
                                         )

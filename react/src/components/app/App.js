@@ -37,7 +37,6 @@ class App extends Component {
   }
   
   componentWillMount() {
-
     this.setMobile();
 
     /* logs user if token exists */
@@ -49,23 +48,18 @@ class App extends Component {
     })
     .then(response => response.text())
     .then(responseText => {
-      console.log(responseText);
-      if (responseText != "Forbidden") {
+      
+      if (responseText !== "Forbidden") {
         let data = JSON.parse(responseText);
 
         if (data.user) {
           this.setUser(data.user);
           this.setLoggedIn(true);
-          console.log(this.state);
         }
       }
       
     })
-  
-    
   }
-
-  
 
 
   componentWillUnmount() {
