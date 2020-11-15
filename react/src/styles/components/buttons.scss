@@ -4,7 +4,6 @@
 }
 
 .button {
-
     color: $textWhite;
     text-decoration: none;
     padding: 10px 34px;
@@ -17,15 +16,19 @@
         background-color: $primaryRed;
         border: 1px solid $primaryRed;
         margin-right: 20px;
+
         &:hover {
             background-color: transparent;
             color: $primaryRed;
         }
     }
+
     &--white {
         border: 1px solid $primaryWhite;
+
         &:hover {
             background-color: $primaryWhite;
+
             & span {
                 mix-blend-mode: difference;
             }
@@ -34,6 +37,7 @@
 
 
     @media only screen and (max-width: 980px) {
+
         & {
             padding: 5px 17px;
             font-size: 14px;

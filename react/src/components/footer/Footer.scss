@@ -1,8 +1,6 @@
 @import '../../styles/abstracts/_variables';
 @import '../../styles/abstracts/_mixins';
 
-
-
 .customfooter {
     background-color: $primaryGrey;
     padding: 50px 0;
@@ -31,7 +29,6 @@
                 padding-right: 15px;
             }
 
-
             &__links {
                 @include flex-box(flex);
                 flex-wrap: wrap;
@@ -41,16 +38,12 @@
                     font-size: 25px;
                     color: $textBlue;
 
-
                     &:not(:last-of-type) {
                         margin-right: 20px;
                     }
                 }
             }
-
-
         }
-
 
         &__info {
             flex: 1;
@@ -82,13 +75,12 @@
             color: $textPrimary;
             @include flex-box();
             
-
-
             &__text {
                 margin-right: 30px;
             }
 
             &__links {
+
                 &__item {
                     display: inline-block;
 
@@ -100,6 +92,7 @@
         }
 
         @media only screen and (max-width: 1000px) {
+
             & {
                 max-width: 100%;
                 padding: 0 10px;
@@ -118,16 +111,17 @@
                     }
 
                     &__links {
+
                         & a {
                             font-size: 35px;
                         }
                     }
                 }
 
-
                 &__copyright {
                     flex-wrap: wrap;
                     margin-top: 30px;
+
                     & > * {
                         
                         flex-basis: 100%;
@@ -135,7 +129,6 @@
 
                     &__links {
                         margin: 0;
-
 
                         &__item {
                             margin-right: 0;
@@ -154,5 +147,4 @@
             }
         }
     }
-
 }

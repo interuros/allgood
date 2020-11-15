@@ -1,8 +1,6 @@
 @import '../../styles/abstracts/_variables';
 @import '../../styles/components/buttons.scss';
 
-
-
 /* DEFAULT CSS */
 * {
     font-size: $primaryFontSize;
@@ -30,7 +28,6 @@ ul {
     text-align: center;
 }
 
-
 section {
     max-width: 1920px;
 
@@ -39,11 +36,12 @@ section {
     }
 }
 
-
 .section {
 
     &__header {
+
         &--divider {
+
             &::after {
                 content: "";
                 position: absolute;
@@ -61,5 +59,4 @@ section {
     &--blue {
         background-color: $primaryBlue;
     }
-
 }

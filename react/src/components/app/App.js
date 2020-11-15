@@ -1,8 +1,7 @@
 import { Component } from 'react';
-
 import './App.scss';
 
-
+/* components */
 import Navigation from '../navigation/Navigation'
 import Hero from '../hero/Hero'
 import HowItWorks from '../how_it_works/HowItWorks'
@@ -15,17 +14,16 @@ import Form from '../form/Form'
 
 class App extends Component {
 
-  
   constructor(props) {
-      super(props);
-      this.state = {mobile:false, formType: "register", isLoggedIn: false, user: false};
+    super(props);
+    this.state = {mobile:false, formType: "register", isLoggedIn: false, user: false};
   }
 
-
   setMobile = () => {
-      this.setState({
-          mobile: window.innerWidth <= 900 ? true : false,
-      })
+
+    this.setState({
+      mobile: window.innerWidth <= 900 ? true : false,
+    })
   }
 
   isMobile = () => {
@@ -37,6 +35,7 @@ class App extends Component {
   }
   
   componentWillMount() {
+
     this.setMobile();
 
     /* logs user if token exists */
@@ -50,20 +49,20 @@ class App extends Component {
     .then(responseText => {
       
       if (responseText !== "Forbidden") {
+
         let data = JSON.parse(responseText);
 
         if (data.user) {
+
           this.setUser(data.user);
           this.setLoggedIn(true);
         }
       }
-      
     })
   }
 
-
   componentWillUnmount() {
-      window.removeEventListener("resize", this.setMobile);
+    window.removeEventListener("resize", this.setMobile);
   }
 
   toggleForm = (type) => {
@@ -77,11 +76,9 @@ class App extends Component {
     this.setState({isLoggedIn: bool});
   }
 
-
   setUser = (user) => {
     this.setState({user: user});
   }
-
 
   render() {
     return (
@@ -97,7 +94,6 @@ class App extends Component {
       </div>
     );
   }
-  
 }
 
 export default App;

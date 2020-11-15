@@ -2,59 +2,49 @@
 @import '../../styles/abstracts/_mixins';
 
 .navigation {
-
     background-color: $primaryBlue;
     padding: 10px 80px;
     @include flex-box(flex, space-between, center);
     flex-wrap: wrap;
     position: relative;
     
-
     &__logo {
 
-    
         & a {
 
-
             & img {
-
                 width: 180px;
 
                 @media only screen and (max-width: 900px) {
+
                     & {
                         width: 120px;
                     }
                 }
             }
         }
-        
     }
 
     &__links {
         flex-basis: 60%;
         @include flex-box(flex, space-between, center);
 
-
         &__list {
             list-style: none;
-            &__item {
 
+            &__item {
                 display: inline-block;
                 padding-bottom: 5px;
 
-
                 &:not(:last-of-type) {
-
                     margin-right: 15px;
                 }
 
                 &--active {
-
                     border-bottom: 1px solid $primaryWhite;
                 }
 
                 & a {
-
                     color: $textWhite;
                 }
             }
@@ -62,28 +52,20 @@
 
         &__account {
 
-
             /* logged in menu styles */
             &__in {
-
                 @include flex-box(flex, flex-start, center);
 
-
                 &__icon {
-
                     color: $textWhite;
                     font-size: 19px;
                     display: inline-block;
 
-
                     &--alert {
-
                         position: relative;
                         margin: 0 30px;
 
-
                         & span {
-
                             background-color: $primaryRed;
                             position: absolute;
                             z-index: 10;
@@ -99,17 +81,12 @@
                     }
                 }
 
-                
-
                 &__profile {
-
                     @include flex-box(flex, flex-start, center);
                     color: $textWhite;
                     position: relative;
 
-
                     &__thumb {
-
                         width: 35px;
                         height: 35px;
                         object-fit: cover;
@@ -118,19 +95,15 @@
                         cursor: pointer;
                     }
 
-
                     & p {
-
                         margin-right: 5px;
                     }
 
                     &__arrow {
-
                         font-size: 12px;
                     }
 
                     &__dropdown {
-
                         position: absolute;
                         background-color: $primaryRed;
                         top: 100%;
@@ -141,9 +114,7 @@
                         padding: 0px;
                         display: block;
 
-
                         &::after {
-
                             content: "";
                             position: absolute;
                             border: 6px solid transparent;
@@ -165,24 +136,21 @@
                             margin: 0;
 
                             &__item {
-
                                 transition: .3s;
                                 background-color: $primaryRed;
                                 display: flex;
-    
     
                                 &:last-of-type {
                                     border-bottom-left-radius: 10px;
                                     border-bottom-right-radius: 10px;
                                 }
     
-    
                                 &:not(:first-of-type) {
-                                 &:hover {
-                                     background-color: lighten($primaryRed, 10%);
-                                 }   
+
+                                    &:hover {
+                                        background-color: lighten($primaryRed, 10%);
+                                    }   
                                 }
-                            
     
                                 & p {
                                     margin: 0;
@@ -196,24 +164,18 @@
                                 }
                             }
                         }
-
-                        
-                        
-
                     }
-
                 }
-
             }
         }
 
         @media only screen and (max-width: 900px) {
+
             & {
                 display: none;
             }
         }
     }
-
 
     &__form {
         right: 0;
@@ -231,13 +193,13 @@
             width: fit-content;
             background-color: #f3f3f4;
 
-
             & input, & button {
                 border: none;
                 padding: 15px;
                 background-color: #f3f3f4;
 
                 @media only screen and (max-width: 900px) {
+
                     & {
                         padding: 7px;
                     }
@@ -245,7 +207,6 @@
             }
 
             & input {
-
                 width: 30%;
 
                 &:focus {
@@ -262,6 +223,7 @@
                 }
 
                 @media only screen and (max-width: 900px) {
+
                     &:not(:first-of-type) {
                         display: none;
                     }
@@ -283,31 +245,29 @@
 
 
             @media only screen and (max-width: 900px) {
+
                 & {
                     width: 100%;
                 }
             }
-
         }
 
 
         @media only screen and (max-width: 900px) {
+
             & {
                 position: relative;
                 padding: 0;
                 flex-basis: 50%;
             }
         }
-
-
     }
 
-
     @media only screen and (max-width: 900px) {
+
         & {
             padding: 5px 10px;
             background-color: $primaryWhite;
         }
     }
-
 } 

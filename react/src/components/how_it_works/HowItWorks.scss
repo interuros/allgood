@@ -2,7 +2,6 @@
 @import '../../styles/abstracts/_mixins';
 @import '../../styles/abstracts/_functions';
 
-
 .howitworks {
     padding: 50px 100px 100px 100px;
     background-color: $primaryGrey;
@@ -21,9 +20,7 @@
         &__link {
             color: $primaryRed;
         }
-
     }
-
 
     &__steps {
         margin-bottom: 220px;
@@ -36,11 +33,9 @@
             max-width: 1340px;
             margin: auto;
             
-
             &__step {
                 $self: &;
                 width: 220px;
-
 
                 &:first-of-type {
                     
@@ -60,31 +55,28 @@
                             }
 
                             @media only screen and (max-width: 1200px) {
+
                                 & {
                                     display: none;
                                 }
-                             }
+                            }
                         }
-                        
                     }
                 }
     
-    
                 &--blue {
-                    
     
                     #{$self}__icon {
                         background-color: lighten($primaryBlue, 65.7%);
     
                         &__container {
                             background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='49' ry='49' stroke='" + str_replace( '' + $primaryBlue, "#", "%23") + "' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-                            
                         }
                     }
                 }
+
                 &--yellow {
                     
-    
                     #{$self}__icon {
                         background-color: lighten($primaryYellow, 50.7%);
     
@@ -92,29 +84,27 @@
                             background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='49' ry='49' stroke='" + str_replace( '' + $primaryYellow, "#", "%23") + "' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
                             
                         }
-                    }
-                }
+                    }   
+                }   
+
                 &--green {
-                    
     
                     #{$self}__icon {
                         background-color: lighten($primaryGreen, 50.7%);
     
                         &__container {
                             background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='49' ry='49' stroke='" + str_replace( '' + $primaryGreen, "#", "%23") + "' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-                            
                         }
                     }
                 }
+
                 &--purple {
                     
-    
                     #{$self}__icon {
                         background-color: lighten($primaryPurple, 24.7%);
     
                         &__container {
-                            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='49' ry='49' stroke='" + str_replace( '' + $primaryPurple, "#", "%23") + "' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-                            
+                            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='49' ry='49' stroke='" + str_replace( '' + $primaryPurple, "#", "%23") + "' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");  
                         }
                     }
                 }
@@ -124,7 +114,6 @@
                     position: relative;
                     border-radius: 50px;
                     
-    
                     &__container {
                         background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='49' ry='49' stroke='black' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
                         border-radius: 49px;    
@@ -133,10 +122,7 @@
     
                         & img {
                             width: 105px;
-                        }
-    
-                       
-                        
+                        } 
                     }
 
                     &__line {
@@ -151,8 +137,6 @@
                             height: 10px;
                         }
                     }
-
-                    
                 }
     
                 &__title {
@@ -172,43 +156,45 @@
             }
         }
 
-
         @media only screen and (max-width: 1200px) {
-           & {
-               overflow-x: auto;
-               margin-bottom: 100px;
-           }
+
+            & {
+                overflow-x: auto;
+                margin-bottom: 100px;
+            }
         }
-
     }
-
 
     &__video {
         max-width: 1340px;
         margin: 0 auto;
         position: relative;
         z-index: 0;
-
         @include flex-box(flex, space-between);
+
         & > * {
             width: 50%;
         }
 
-
         &__poster {
+
             & a {
                 margin-left: 30px;
                 @include flex-box(inline-flex);
+
                 & img {
                     width: 100%;
                     max-width: 450px;
                     z-index: -1;
                 }
             }
+
             @media only screen and (max-width: 1200px) {
+
                 & {
                     width: 100%;
                     text-align: center;
+
                     & a {
                         margin: 0;
                     }
@@ -217,9 +203,6 @@
         }
 
         &__last {
-
-            
-            
 
             &__container {
                 position: absolute;
@@ -242,7 +225,6 @@
                     color: $textPrimary;
                 }
 
-
                 &__text, &__title {
                     text-align: center;
                     width: 250px;
@@ -250,18 +232,16 @@
                 }
             }
 
-
             @media only screen and (max-width: 1200px) {
                 & {
                     display: none;
                 }
             }
         }
-
     }
 
-
     @media only screen and (max-width: 900px) {
+        
         & {
             padding: 50px 20px 100px 20px;
         } 
