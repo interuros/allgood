@@ -1,11 +1,11 @@
 const createError = require('http-errors');
 const express = require('express');
-const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require("./config/config")
+const passport = require("passport");
 
 const itemRoutes = require('./routes/itemRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -13,6 +13,8 @@ const userRoutes = require('./routes/userRoutes');
 const app = express();
 
 const dbURI = config.mongoDbURI;
+
+/* Set up DB connection (mongodb Atlas) */
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
   .then((result) => app.listen(config.port, "localhost"))
   .catch((err) => console.log(err));
@@ -22,8 +24,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// enable cors
 app.use(cors());
 app.options('*', cors());
+
+
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport config
+require("./config/passport")(passport);
 
 app.use('/user', userRoutes);
 app.use('/item', itemRoutes);
@@ -32,6 +42,7 @@ app.use('/item', itemRoutes);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

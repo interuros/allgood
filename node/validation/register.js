@@ -24,7 +24,7 @@ module.exports = function validateRegisterData (data) {
     
     
     if (!validator.isEmail(data.email)) {
-        errors.push({text: "Please fill in a valid email address!"});
+        errors.push({text: "Your email is not valid. Please enter a valid email!"});
     }
 
     if (!validator.isLength(data.password, {min: 4, max: 10})) {

@@ -30,15 +30,18 @@ class Footer extends Component {
         .then(response => response.text())
         .then(responseText => {
             let data = JSON.parse(responseText);
-
+            
             if (data.success) {
+                this.props.setLoggedIn(true);
+                this.props.setUser(data.user);
+                localStorage.setItem('token', data.token)
                 this.props.toggleForm("");
             } else {
                 this.setState({errors: data.errors});
             }
         })
         .catch(err => {
-            console.log(err);
+            
         })
 
 
@@ -68,7 +71,7 @@ class Footer extends Component {
         const forms = {
             login: {
                 fields: [
-                    {name: "username", type: "email", placeholder: "Enter your e-mail", label: "Username", required: true},
+                    {name: "email", type: "email", placeholder: "Enter your e-mail", label: "Email", required: true},
                     {name: "password", type: "password",  placeholder: "Enter your password", label: "Password", required: true},
                 ]
             },

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { faEnvelope, faBell, faChevronDown, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Buttons from '../buttons/Buttons'
+import Account from './account/Account'
 
 import './Navigation.scss'
 import desktopLogo from '../../assets/logo.png'
 import mobileLogo from '../../assets/logo-mobile.png'
-import accImg from '../../assets/account_default.jpg'
 
 
 class Navigation extends Component {
@@ -15,7 +15,6 @@ class Navigation extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        this.changeLogo = this.changeLogo.bind(this)
     }
 
 
@@ -68,32 +67,7 @@ class Navigation extends Component {
                         </li>
                     </ul>
                     <div className="navigation__links__account">
-                        <Buttons toggleForm={this.props.toggleForm} />
-                        <div className="navigation__links__account__in hide">
-                            <a href={void(0)} className="navigation__links__account__in__icon">
-                                <FontAwesomeIcon icon={faEnvelope} />
-                            </a>
-                            <a href={void(0)} className="navigation__links__account__in__icon navigation__links__account__in__icon--alert">
-                                <FontAwesomeIcon className="" icon={faBell} />
-                                <span>2</span>
-                            </a>
-                            
-                            <div className="navigation__links__account__in__profile">
-                                <img className="navigation__links__account__in__profile__thumb" src={accImg} alt=""/>
-                                
-                                <a className="navigation__links__account__in__profile__arrow">
-                                    <FontAwesomeIcon icon={faChevronDown} />
-                                </a>
-                                <ul className="navigation__links__account__in__profile__dropdown">
-                                    <li className="navigation__links__account__in__profile__dropdown__item">
-                                        <p>Signed in as Username</p>
-                                    </li>
-                                    <li className="navigation__links__account__in__profile__dropdown__item">
-                                        <a href="#">Log out</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        {this.props.isLoggedIn === false && !this.props.user ? <Buttons toggleForm={this.props.toggleForm} /> : <Account setUser={this.props.setUser} setLoggedIn={this.props.setLoggedIn} user={this.props.user}/>}
                     </div> 
                 </div>
                 

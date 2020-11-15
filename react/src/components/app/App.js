@@ -18,7 +18,7 @@ class App extends Component {
   
   constructor(props) {
       super(props);
-      this.state = {mobile:false, formType: "register"};
+      this.state = {mobile:false, formType: "register", isLoggedIn: false, user: false};
   }
 
 
@@ -37,8 +37,35 @@ class App extends Component {
   }
   
   componentWillMount() {
+
     this.setMobile();
+
+    /* logs user if token exists */
+    fetch("http://localhost:3000/user/get", {
+      headers: {
+        'Content-Type': 'appliaction/json',
+        Authorization: localStorage.getItem('token'),
+      }
+    })
+    .then(response => response.text())
+    .then(responseText => {
+      console.log(responseText);
+      if (responseText != "Forbidden") {
+        let data = JSON.parse(responseText);
+
+        if (data.user) {
+          this.setUser(data.user);
+          this.setLoggedIn(true);
+          console.log(this.state);
+        }
+      }
+      
+    })
+  
+    
   }
+
+  
 
 
   componentWillUnmount() {
@@ -52,25 +79,27 @@ class App extends Component {
     })
   }
 
+  setLoggedIn = (bool) => {
+    this.setState({isLoggedIn: bool});
+  }
 
-  
+
+  setUser = (user) => {
+    this.setState({user: user});
+  }
 
 
   render() {
     return (
       <div className="App">
-        <Navigation toggleForm={this.toggleForm} mobile={this.isMobile()}/>
+        <Navigation setUser={this.setUser} user={this.state.user} setLoggedIn={this.setLoggedIn} isLoggedIn={this.state.isLoggedIn} toggleForm={this.toggleForm} mobile={this.isMobile()}/>
         <Hero mobile={this.isMobile()}/>
         <HowItWorks/>
-        <Post toggleForm={this.toggleForm}/>
+        {this.state.isLoggedIn === false ? <Post toggleForm={this.toggleForm}/> : ""}
         <Featured/>
         <CallToAction/>
-        <Footer/>
-        {/* {this.state.formShow ? 
-        <Form type={this.state.formType}/>
-        : null} */}
-        {this.state.formShow ? <Form toggleForm={this.toggleForm} type={this.state.formType} popup={true}/> : null}
-        
+        {this.state.formShow ? <Form setUser={this.setUser} setLoggedIn={this.setLoggedIn} toggleForm={this.toggleForm} type={this.state.formType} popup={true}/> : null}
+        <Footer/>        
       </div>
     );
   }
