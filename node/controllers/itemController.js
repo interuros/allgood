@@ -1,13 +1,16 @@
 const Item = require("../models/item");
 
-
 const item_list = (req, res) => {
+
     Item.find().limit(7)
         .then(result => {
+
             res.send(result.map(item => {
+
                 let shortDesc = item.description;
 
                 if (shortDesc.length > 90) {
+                    
                     shortDesc = shortDesc.substring(0, 89);
 
                     if (shortDesc.slice(-1) === ".") {
@@ -27,7 +30,7 @@ const item_list = (req, res) => {
             }))
         })
         .catch(err => {
-            res.send(err)
+            res.send(err);
         });
 }
 

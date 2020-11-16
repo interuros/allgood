@@ -6,16 +6,12 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require("./config/config")
 const passport = require("passport");
-
 const itemRoutes = require('./routes/itemRoutes');
 const userRoutes = require('./routes/userRoutes');
-
 const app = express();
 
-const dbURI = config.mongoDbURI;
-
 /* Set up DB connection (mongodb Atlas) */
-mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(config.mongoDbURI, {useNewUrlParser: true, useUnifiedTopology: true})
   .then((result) => app.listen(config.port, "localhost"))
   .catch((err) => console.log(err));
 
@@ -28,13 +24,13 @@ app.use(cookieParser());
 app.use(cors());
 app.options('*', cors());
 
-
 // Passport middleware
 app.use(passport.initialize());
 
 // Passport config
 require("./config/passport")(passport);
 
+/* routes */
 app.use('/user', userRoutes);
 app.use('/item', itemRoutes);
 
@@ -42,7 +38,6 @@ app.use('/item', itemRoutes);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
 
 // error handler
 app.use(function(err, req, res, next) {

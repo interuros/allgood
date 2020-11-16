@@ -7,22 +7,22 @@ const fields = {
 };
 
 module.exports = function validateLoginData (data) {
+
     let errors = [];
 
     for (let key in data) {
+
         if (data.hasOwnProperty(key)) {
+
             if (validator.isEmpty(data[key]) && fields[key].required === true) {
                 errors.push({text: fields[key].msg});
             }
         }
     }
-
-    
     
     if (!validator.isEmail(data.email)) {
         errors.push({text: "Your email is not valid. Please enter a valid email!"});
     }
-
 
     return {
         errors: errors,
